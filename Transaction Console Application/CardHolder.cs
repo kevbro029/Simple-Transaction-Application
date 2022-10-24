@@ -8,7 +8,7 @@ namespace Transaction_Console_Application
     public class CardHolder
     {
 
-        // Variables
+        // Variables //
 
         string firstName;
         string lastName;
@@ -16,7 +16,7 @@ namespace Transaction_Console_Application
         int pin;
         double balance;
 
-        // Public constructor to contain all credentials for the card holder.
+        // Public constructor to contain all credentials for the card holder. //
 
         private CardHolder(string firstName, string lastName, string cardNumber, int pin, double balance)
         {
@@ -29,61 +29,23 @@ namespace Transaction_Console_Application
 
         }
 
-        // Constructors
+        // Constructors //
 
-        private string getfirstName()
-        {
-            return firstName;
-        }
+        private string getfirstName() { return firstName; }
+        public string getLastName() { return lastName; }
+        public string getNum() { return cardNumber; }
+        private int getPin() { return pin; }
+        private double getBalance() { return balance; }
 
-        public string getLastName()
-        {
-            return lastName;
-        }
+        // Setters //
+        
+        public void setFirstName(string newFirstName) { firstName = newFirstName; } 
+        public void setLastName(string newLastName) { lastName = newLastName; }
+        public void setNum(string newCardNumber) { cardNumber = newCardNumber; }
+        public void setPin(int newPin) { pin = newPin; }
+        private void setBalance(double newBalance) { balance = newBalance; }
 
-        public string getNum()
-        {
-            return cardNumber;
-        }
-
-        private int getPin()
-        {
-            return pin;
-        }
-
-        private double getBalance()
-        {
-            return balance;
-        }
-
-        // Setters
-
-        public void setFirstName(string newFirstName)
-        {
-            firstName = newFirstName;
-        }
-
-        public void setLastName(string newLastName)
-        {
-            lastName = newLastName;
-        }
-
-        public void setNum(string newCardNumber)
-        {
-            cardNumber = newCardNumber;
-        }
-
-        public void setPin(int newPin)
-        {
-            pin = newPin;
-        }
-
-        private void setBalance(double newBalance)
-        {
-            balance = newBalance;
-        }
-
-        // Main function argument for the program.
+        // Main function argument for the program. //
 
         public static void Main(string[] args)
         {
@@ -96,7 +58,7 @@ namespace Transaction_Console_Application
                 WriteLine("4. Exit.");
             }
 
-            // Prompts the user to deposit money into the database.
+            // Prompts the user to deposit money into the database. //
 
             void deposit(CardHolder currentUser)
             {
@@ -106,7 +68,7 @@ namespace Transaction_Console_Application
                 Console.WriteLine("Thank you for your $$. Your new balance is: $" + currentUser.getBalance() + "!");
             }
 
-            // Prompts the user to withdraw money from the database.
+            // Prompts the user to withdraw money from the database. //
 
             void withdraw(CardHolder currentUser)
             {
@@ -125,7 +87,7 @@ namespace Transaction_Console_Application
                 }
             }
 
-            // Displays the current balance of the user.
+            // Displays the current balance of the user. //
 
             void balance(CardHolder currentUser)
             {
@@ -137,8 +99,11 @@ namespace Transaction_Console_Application
             Console.WriteLine("Welcome to SimpleATM!");
             Console.WriteLine("Please insert your debit card: ");
             String debitCardNumber = "";
+            // currentUser is declared as currentUser2 to satisfy the sustained variable. //
             CardHolder currentUser2;
 
+            // The while loop checks if the input is a valid debit card. //
+            
             while (true)
             {
                 try
@@ -162,6 +127,8 @@ namespace Transaction_Console_Application
 
             Console.WriteLine("Please enter your pin: ");
 
+            // The following while loop checks if the input is a valid pin. //
+            
             while(true)
             {
                 try
@@ -195,9 +162,11 @@ namespace Transaction_Console_Application
                 }
                 catch
                 {
-                    // ignored
+                    // Ignored.
                 }
 
+                // The following if statements execute the following functions that the user selects. //
+                
                 if (option == 1) { deposit(currentUser2); }
                 else if (option == 2) { withdraw(currentUser2); }
                 else if (option == 3) { balance(currentUser2); }

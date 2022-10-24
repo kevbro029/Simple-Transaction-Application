@@ -4,3 +4,9 @@ C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Applica
 C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\bin\Debug\Transaction_Console_Application.pdb
 C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction_Console_Application.exe
 C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction_Console_Application.pdb
+D:\Kevin's Tree\Developers Only\Transaction Console Application\Transaction Console Application\bin\Debug\Transaction_Console_Application.exe
+D:\Kevin's Tree\Developers Only\Transaction Console Application\Transaction Console Application\bin\Debug\Transaction_Console_Application.pdb
+D:\Kevin's Tree\Developers Only\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction Console Application.csproj.AssemblyReference.cache
+D:\Kevin's Tree\Developers Only\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction Console Application.csproj.CoreCompileInputs.cache
+D:\Kevin's Tree\Developers Only\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction_Console_Application.exe
+D:\Kevin's Tree\Developers Only\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction_Console_Application.pdb
