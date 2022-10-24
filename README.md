@@ -4,4 +4,4 @@ deposit, withdraw, balance checks, and more. This is only a side project that is
 to improve my skills in C# and the .NET framework.
 
 Feel free to use however you may like! This is probably done by many others out there
-anyways ¯\_(ツ)_/¯
+anyways  ¯\_(ツ)_/¯
