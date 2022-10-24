@@ -1,0 +1,6 @@
+C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction Console Application.csproj.AssemblyReference.cache
+C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction Console Application.csproj.CoreCompileInputs.cache
+C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\bin\Debug\Transaction_Console_Application.exe
+C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\bin\Debug\Transaction_Console_Application.pdb
+C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction_Console_Application.exe
+C:\Users\Kevin\Desktop\Interactive Console StoryMode\Transaction Console Application\Transaction Console Application\obj\Debug\Transaction_Console_Application.pdb
