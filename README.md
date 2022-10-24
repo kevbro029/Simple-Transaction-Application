@@ -3,5 +3,5 @@ Written in a single C# file, this console application contains basic features su
 deposit, withdraw, balance checks, and more. This is only a side project that is done 
 to improve my skills in C# and the .NET framework.
 
-Feel free to use however you may like! This is probably done by many others out there
-anyways ( ͡° ͜ʖ ͡°)
+There are plenty of projects like this that are easily done out there, so don't think 
+doing something like this is too difficult to make. ( ͡° ͜ʖ ͡°) 
