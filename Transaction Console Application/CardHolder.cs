@@ -171,7 +171,11 @@ namespace Transaction_Console_Application
                 else if (option == 2) { withdraw(currentUser2); }
                 else if (option == 3) { balance(currentUser2); }
                 else if (option == 4) { break; }
-                else { option = 0; }
+                else
+                {
+                    option = 0;
+                    Console.WriteLine("I couldn't understand that. Please try again.");
+                }
             }
 
             while (option != 4);
