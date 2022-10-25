@@ -129,6 +129,7 @@ namespace Transaction_Console_Application
                     {
                         break;
                     }
+                    // Temporarily removed.
                     /* else
                     {
                         Console.WriteLine("An error has occured. Please try again.");
