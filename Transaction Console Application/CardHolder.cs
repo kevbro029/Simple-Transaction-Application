@@ -1,4 +1,5 @@
-﻿using System;
+﻿#nullable enable
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using static System.Console;
@@ -10,22 +11,28 @@ namespace Transaction_Console_Application
 
         // Variables //
 
-        string firstName;
-        string lastName;
-        string cardNumber;
-        int pin;
-        double balance;
+        static string firstName;
+        static string lastName;
+        static string cardNumber;
+        static int pin;
+        static double balance;
+
+        private static string? _lastName = null;
+        private static string? _firstName = null;
+        private static int _debitCardNumber;
+        private static int _pin;
+        private static int _pinConfirm;
 
         // Public constructor to contain all credentials for the card holder. //
 
         private CardHolder(string firstName, string lastName, string cardNumber, int pin, double balance)
         {
 
-            this.cardNumber = cardNumber;
-            this.pin = pin;
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.balance = balance;
+            CardHolder.cardNumber = cardNumber;
+            CardHolder.pin = pin;
+            CardHolder.firstName = firstName;
+            CardHolder.lastName = lastName;
+            CardHolder.balance = balance;
 
         }
 
@@ -47,9 +54,11 @@ namespace Transaction_Console_Application
 
         // Main function argument for the program. //
 
+        // ReSharper disable once InconsistentNaming. //
         public static void Main(string[] args)
         {
-            void printOptions()
+            
+            void PrintOptions()
             {
                 WriteLine("Please choose from one of the following options: ");
                 WriteLine("1. Deposit.");
@@ -60,47 +69,47 @@ namespace Transaction_Console_Application
 
             // Prompts the user to deposit money into the database. //
 
-            void deposit(CardHolder currentUser)
+            void Deposit(CardHolder currentUser)
             {
-                WriteLine("How much money would you like to deposit? ");
+                WriteLine("How much money would you like to deposit? Please enter a number.");
                 double deposited = double.Parse(ReadLine());
-                currentUser.setBalance(deposited);
-                Console.WriteLine("Thank you for your $$. Your new balance is: $" + currentUser.getBalance() + "!");
+                double newBalance = currentUser.getBalance() + deposited;
+                currentUser.setBalance(newBalance);
+                Console.WriteLine("Thank you for your $$. Your new balance is: $" + newBalance + "!");
             }
 
             // Prompts the user to withdraw money from the database. //
 
-            void withdraw(CardHolder currentUser)
+            void Withdraw(CardHolder currentUser)
             {
-                WriteLine("How much money would you like to withdraw? ");
+                WriteLine("How much money would you like to withdraw? Please enter a number.");
                 double withdrawal = double.Parse(ReadLine());
-                if (currentUser.getBalance() > withdrawal)
+                if (currentUser.getBalance() < withdrawal)
                 {
                     Console.WriteLine("Insufficient balance.");
                 }
                 else
                 {
-                    double newBalance = (currentUser.getBalance() - withdrawal);
-                    currentUser.setBalance(withdrawal);
-                    Console.WriteLine("Thank you for your withdrawal. Your new balance is: $" + currentUser.getBalance() +
-                                      "!");
+                    currentUser.setBalance(currentUser.getBalance() - withdrawal);
+                    Console.WriteLine("Thank you for your withdrawal. Your new balance is: $" + currentUser.getBalance() + "!");
                 }
             }
 
             // Displays the current balance of the user. //
 
-            void balance(CardHolder currentUser)
+            void Balance(CardHolder currentUser)
             {
                 Console.WriteLine("Current balance: " + currentUser.getBalance());
             }
 
-            List<CardHolder> cardHolders = new List<CardHolder> {new CardHolder("John", "Griffith", "4738101037632456", 1234, 150.31)};
+            List<CardHolder> cardHolders = new List<CardHolder>();
+            cardHolders.Add(new CardHolder("John", "Smith","1234567890123456", 1234, 500.00));
 
             Console.WriteLine("Welcome to SimpleATM!");
-            Console.WriteLine("Please insert your debit card: ");
+            Console.WriteLine("Please insert your debit card.");
             String debitCardNumber = "";
             // currentUser is declared as currentUser2 to satisfy the sustained variable. //
-            CardHolder currentUser2;
+            CardHolder currentUser;
 
             // The while loop checks if the input is a valid debit card. //
             
@@ -109,8 +118,12 @@ namespace Transaction_Console_Application
                 try
                 {
                     debitCardNumber = Console.ReadLine();
-                    currentUser2 = cardHolders.FirstOrDefault(a => a.cardNumber == debitCardNumber);
-                    if (currentUser2 != null)
+                    currentUser = cardHolders.FirstOrDefault(a => CardHolder.cardNumber == debitCardNumber);
+                    if (currentUser != null)
+                    {
+                        break;
+                    }
+                    else if (debitCardNumber == "Create account")
                     {
                         break;
                     }
@@ -125,17 +138,17 @@ namespace Transaction_Console_Application
                 }
             }
 
-            Console.WriteLine("Please enter your pin: ");
-
             // The following while loop checks if the input is a valid pin. //
             
             while(true)
             {
                 try
                 {
+                    Console.WriteLine("Please enter your pin: ");
                     var userPin = int.Parse(Console.ReadLine());
-                    currentUser2 = cardHolders.FirstOrDefault(a => a.cardNumber == debitCardNumber);
-                    if (currentUser2.getPin() == userPin)
+                    currentUser = cardHolders.FirstOrDefault(a => CardHolder.cardNumber == debitCardNumber);
+                    // ReSharper disable once PossibleNullReferenceException. //
+                    if (currentUser.getPin() == userPin)
                     {
                         break;
                     }
@@ -149,13 +162,13 @@ namespace Transaction_Console_Application
                     Console.WriteLine("The given pin is incorrect. Please try again.");
                 }
             }
-
-            Console.WriteLine("Welcome " + currentUser2.getfirstName() + "!");
+            
+            Console.WriteLine("Welcome " + currentUser.getfirstName() + "!");
             int option = 0;
 
             do
             {
-                printOptions();
+                PrintOptions();
                 try
                 {
                     option = int.Parse(ReadLine());
@@ -167,9 +180,9 @@ namespace Transaction_Console_Application
 
                 // The following if statements execute the following functions that the user selects. //
                 
-                if (option == 1) { deposit(currentUser2); }
-                else if (option == 2) { withdraw(currentUser2); }
-                else if (option == 3) { balance(currentUser2); }
+                if (option == 1) { Deposit(currentUser); }
+                else if (option == 2) { Withdraw(currentUser); }
+                else if (option == 3) { Balance(currentUser); }
                 else if (option == 4) { break; }
                 else
                 {
