@@ -6,3 +6,8 @@ in the program are pretty straight forward if you wish to try it out for yoursel
 
 There are plenty of projects like this that are easily done out there, so don't think 
 doing something like this is too difficult to make. ( ͡° ͜ʖ ͡°) 
+
+If you wish to log in, use the following credentials below.
+
+Debit card: 1234567890123456
+PIN: 1234
