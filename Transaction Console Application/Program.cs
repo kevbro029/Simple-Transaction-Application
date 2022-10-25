@@ -12,14 +12,14 @@ namespace Transaction_Console_Application
         // Variables //
 
         static string firstName;
-        static string lastName;
+        string lastName;
         static string cardNumber;
-        static int pin;
-        static double balance;
+        int pin;
+        double balance;
 
         private static string? _lastName = null;
         private static string? _firstName = null;
-        private static int _debitCardNumber;
+        private static string _debitCardNumber;
         private static int _pin;
         private static int _pinConfirm;
 
@@ -29,14 +29,26 @@ namespace Transaction_Console_Application
         {
 
             CardHolder.cardNumber = cardNumber;
-            CardHolder.pin = pin;
+            this.pin = pin;
             CardHolder.firstName = firstName;
-            CardHolder.lastName = lastName;
-            CardHolder.balance = balance;
+            this.lastName = lastName;
+            this.balance = balance;
 
         }
 
         // Constructors //
+
+        /*
+        public string getNewFirstName() { return _firstName; }
+
+        public string getNewLastName() { return _lastName; }
+
+        public string getNewNum() { return _debitCardNumber; }
+
+        public int getNewPin() { return _pin; } 
+        */
+
+        // Local Constructors //
 
         private string getfirstName() { return firstName; }
         public string getLastName() { return lastName; }
@@ -45,11 +57,7 @@ namespace Transaction_Console_Application
         private double getBalance() { return balance; }
 
         // Setters //
-        
-        public void setFirstName(string newFirstName) { firstName = newFirstName; } 
-        public void setLastName(string newLastName) { lastName = newLastName; }
-        public void setNum(string newCardNumber) { cardNumber = newCardNumber; }
-        public void setPin(int newPin) { pin = newPin; }
+
         private void setBalance(double newBalance) { balance = newBalance; }
 
         // Main function argument for the program. //
@@ -102,42 +110,36 @@ namespace Transaction_Console_Application
                 Console.WriteLine("Current balance: " + currentUser.getBalance());
             }
 
-            List<CardHolder> cardHolders = new List<CardHolder>();
-            cardHolders.Add(new CardHolder("John", "Smith","1234567890123456", 1234, 500.00));
+            var cardHolders = new List<CardHolder> {new CardHolder("John", "Smith","1234567890123456", 1234, 500.00)};
 
             Console.WriteLine("Welcome to SimpleATM!");
             Console.WriteLine("Please insert your debit card.");
-            String debitCardNumber = "";
-            // currentUser is declared as currentUser2 to satisfy the sustained variable. //
+            var debitCardNumber = "";
             CardHolder currentUser;
 
             // The while loop checks if the input is a valid debit card. //
-            
+
             while (true)
             {
                 try
                 {
-                    debitCardNumber = Console.ReadLine();
+                    debitCardNumber = int.Parse(Console.ReadLine()).ToString();
                     currentUser = cardHolders.FirstOrDefault(a => CardHolder.cardNumber == debitCardNumber);
                     if (currentUser != null)
                     {
                         break;
                     }
-                    else if (debitCardNumber == "Create account")
+                    /* else
                     {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("The card number is not recognized. Please try again.");
-                    }
+                        Console.WriteLine("An error has occured. Please try again.");
+                    } */
                 }
                 catch
                 {
-                    Console.WriteLine("The card number is not recognized. Please try again.");
+                    Console.WriteLine("An error has occured. Please try again.");
                 }
             }
-
+            
             // The following while loop checks if the input is a valid pin. //
             
             while(true)
