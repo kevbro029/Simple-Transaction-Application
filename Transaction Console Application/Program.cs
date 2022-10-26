@@ -12,16 +12,10 @@ namespace Transaction_Console_Application
         // Variables //
 
         static string firstName;
-        string lastName;
+        static string lastName;
         static string cardNumber;
-        int pin;
-        double balance;
-
-        private static string? _lastName = null;
-        private static string? _firstName = null;
-        private static string _debitCardNumber;
-        private static int _pin;
-        private static int _pinConfirm;
+        static int pin;
+        static double balance;
 
         // Public constructor to contain all credentials for the card holder. //
 
@@ -29,10 +23,10 @@ namespace Transaction_Console_Application
         {
 
             CardHolder.cardNumber = cardNumber;
-            this.pin = pin;
+            CardHolder.pin = pin;
             CardHolder.firstName = firstName;
-            this.lastName = lastName;
-            this.balance = balance;
+            CardHolder.lastName = lastName;
+            CardHolder.balance = balance;
 
         }
 
@@ -115,7 +109,7 @@ namespace Transaction_Console_Application
             Console.WriteLine("Welcome to SimpleATM!");
             Console.WriteLine("Please insert your debit card.");
             var debitCardNumber = "";
-            CardHolder currentUser;
+            CardHolder currentUser = null;
 
             // The while loop checks if the input is a valid debit card. //
 
@@ -123,17 +117,12 @@ namespace Transaction_Console_Application
             {
                 try
                 {
-                    debitCardNumber = int.Parse(Console.ReadLine()).ToString();
+                    debitCardNumber = Console.ReadLine();
                     currentUser = cardHolders.FirstOrDefault(a => CardHolder.cardNumber == debitCardNumber);
                     if (currentUser != null)
                     {
                         break;
                     }
-                    // Temporarily removed.
-                    /* else
-                    {
-                        Console.WriteLine("An error has occured. Please try again.");
-                    } */
                 }
                 catch
                 {
