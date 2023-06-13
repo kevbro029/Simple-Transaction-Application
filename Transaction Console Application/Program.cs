@@ -30,18 +30,6 @@ namespace Transaction_Console_Application
 
         }
 
-        // Constructors //
-
-        /*
-        public string getNewFirstName() { return _firstName; }
-
-        public string getNewLastName() { return _lastName; }
-
-        public string getNewNum() { return _debitCardNumber; }
-
-        public int getNewPin() { return _pin; } 
-        */
-
         // Local Constructors //
 
         private string getfirstName() { return firstName; }
